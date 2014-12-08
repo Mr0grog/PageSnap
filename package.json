@@ -1,0 +1,15 @@
+{
+  "name": "pagesnap",
+  "version": "0.0.1",
+  "description": "Quick demo of using PhantomJS to snapshot a page.",
+  "main": "pagesnap.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.10.4",
+    "webshot": "^0.15.3"
+  }
+}
