@@ -7,10 +7,19 @@ var app = express();
 // generate a PNG of the requested URL
 app.get('/:url.png', function(req, res) {
   var url = decodeURIComponent(req.params.url);
-  webshot(url, function(error, renderStream) {
+  var options = {
+    userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:34.0) Gecko/20100101 Firefox/34.0",
+    phantomConfig: {
+      "ignore-ssl-errors": "true",
+      "ssl-protocol": "ANY",
+      "ssl-ciphers": "ALL"
+    }
+  };
+  webshot(url, options, function(error, renderStream) {
     if (error) {
       // really we should send something useful back here
       res.end();
+      return;
     }
     
     renderStream.pipe(res);
