@@ -11,13 +11,13 @@ app.get('/:url.png', function(req, res) {
     userAgent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:34.0) Gecko/20100101 Firefox/34.0",
     phantomConfig: {
       "ignore-ssl-errors": "true",
-      "ssl-protocol": "ANY",
-      "ssl-ciphers": "ALL"
+      "ssl-protocol": "ANY"
     }
   };
   webshot(url, options, function(error, renderStream) {
     if (error) {
       // really we should send something useful back here
+      console.error(error);
       res.end();
       return;
     }
